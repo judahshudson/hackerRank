@@ -1,0 +1,28 @@
+#https://www.hackerrank.com/tests/6sbcb0j21h4/questions/cg0t9731cgt
+
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'calculateAmount' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts INTEGER_ARRAY prices as parameter.
+#
+
+def calculateAmount(prices):
+    total = prices[0]
+    total += prices[1] - prices[0]
+
+    for i in range(2, len(prices)):
+        total += max(0, prices[i] - (min(prices[:i])) )
+
+    return total
+
