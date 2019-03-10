@@ -1,0 +1,42 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+
+#
+# Complete the 'getShiftedString' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. STRING s
+#  2. INTEGER leftShifts
+#  3. INTEGER rightShifts
+#
+
+
+def shiftedIndex(currentIndex, numShifts, lenStr):
+    if (currentIndex + numShifts) < 0:
+        newIndex = (lenStr - 1) - (numShifts - indexValue) - 1
+    elif (currentIndex + numShifts) > lenStr - 1:
+      newIndex = (lenStr -1) - currentIndex
+    else:
+        newIndex = currentIndex + numShifts
+
+    return newIndex
+
+
+def getShiftedString(s, leftShifts, rightShifts):
+    newS = [None]*len(s)
+    totalShift = rightShifts - leftShifts
+
+    for i in range(len(s)):
+        newS[shiftedIndex(i, totalShift, len(s))] = s[i]
+
+    return "".join(newS)
+ 
+
+if __name__ == '__main__':
