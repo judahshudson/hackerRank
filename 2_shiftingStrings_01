@@ -1,0 +1,63 @@
+#https://www.hackerrank.com/tests/6sbcb0j21h4/questions/d5a66r8e86r
+
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'getShiftedString' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. STRING s
+#  2. INTEGER leftShifts
+#  3. INTEGER rightShifts
+#
+
+def shiftedIndex(currentIndex, numShifts, lenStr):
+    if (currentIndex + numShifts) < 0:
+        newIndex = (lenStr - 1) - (numShifts - indexValue) - 1
+    elif (currentIndex + numShifts) > lenStr - 1:
+      newIndex = (lenStr -1) - currentIndex - 1
+    else:
+        newIndex = numShifts
+    return newIndex
+
+def getShiftedString(s, leftShifts, rightShifts):
+    # Write your code here
+    '''ALGORITHM
+-find total sum of left or right shift
+-iterate through string
+*for each index value, shift right/+ or left/-, according to total sum found above
+*wrap around:
+  if (currentIndex +- shift) < 0:
+      newIndex = (end of string) - (shift - currentIndex) - 1
+  if (currentIndex +- shift) > len(string)-1:
+      newIndex = (start of string) + ( (len(string)-1) - currentIndex) - 1
+
+copy new indeces/values into resString
+return resString
+    '''
+
+    newS = []
+    totalShift = rightShifts - leftShifts
+
+'''
+    newS = ""
+    for i in range(len(s)-1):
+        newInd = shiftedIndex(i, totalShift, len(s))
+        newS = newS[:newInd] + s[i] + newS[newInd:]
+'''
+
+    for i in range(len(s)-1):
+        newS[shiftedIndex(i, totalShift, len(s))] = s[i]
+
+    return "".join(newS)
+
+
