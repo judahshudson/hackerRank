@@ -1,0 +1,58 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+
+#
+# Complete the 'getShiftedString' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. STRING s
+#  2. INTEGER leftShifts
+#  3. INTEGER rightShifts
+#
+
+def shiftedIndex(currentIndex, numShifts, lenStr):
+    if (currentIndex + numShifts) < 0:
+        newIndex = (lenStr - 1) - (numShifts - indexValue) - 1
+        print("1st if: (currentIndex + numShifts) < 0:")
+    elif (currentIndex + numShifts) > lenStr - 1:
+      newIndex = (lenStr -1) - currentIndex #- 1 wrong answer
+      print("2 elif: (currentIndex + numShifts) > lenStr - 1:")
+    else:
+        newIndex = currentIndex + numShifts
+        print("3 else: ")
+
+    print("currentIndex: ", currentIndex)
+    print("numShifts: ", numShifts)
+    print("newIndex: ", newIndex)
+    print()
+    return newIndex
+
+def getShiftedString(s, leftShifts, rightShifts):
+    # Write your code here
+    newS = [None]*len(s)
+    totalShift = rightShifts - leftShifts
+
+    for i in range(len(s)):
+        '''
+        print("current index: ", i)
+        print("original string letter: ", s[i])
+        print("newIndex: ", shiftedIndex(i, totalShift, len(s)))
+        print()
+        '''
+        newS[shiftedIndex(i, totalShift, len(s))] = s[i]
+
+    print(newS)
+
+    resStr = "".join(newS)
+    return resStr
+
+
+getShiftedString("abcd",1,2)
+
